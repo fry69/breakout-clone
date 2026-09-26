@@ -1,0 +1,61 @@
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #0b0e14;
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  overflow: hidden;
+}
+
+#stage {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+canvas {
+  display: block;
+  max-width: 96vw;
+  max-height: 96vh;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(80, 120, 255, 0.25), 0 0 0 1px #2a3350;
+  cursor: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.25rem;
+  text-align: center;
+  color: #dbe4ff;
+  background: rgba(8, 10, 18, 0.72);
+  backdrop-filter: blur(4px);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 0.4em;
+  text-indent: 0.4em;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.overlay p { margin: 0.4rem 0; }
+.overlay .hint { opacity: 0.55; font-size: 0.8rem; }
